@@ -26,7 +26,8 @@ jobs:
     - name: Start server in background
       run: npm run start > /dev/null 2>&1 &
     - run: sleep 10 # Da tiempo al servidor para que se inicie
-    - run: cd ga/artillery-tests; chmod +x ./run-art-tests.sh; ./run-art-tests.sh
+    - run: chmod +x ga/artillery-tests/run-art-tests.sh
+    - run: ga/artillery-tests/run-art-tests.sh
     - run: sleep 120
     - name: Kill Node.js process
       run: kill $! # Esto enviará la señal de terminación al último proceso en segundo plano
