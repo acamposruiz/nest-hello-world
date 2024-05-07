@@ -1,15 +1,15 @@
 config:
   target: "https://www.twonav.com/es/mapas/"
   phases:
-    - duration: 15
-      arrivalRate: 5
+    - duration: 25
+      arrivalRate: 15
       name: "Calentamiento"
-    - duration: 5
-      arrivalRate: 20
-      rampTo: 20
-      name: "Crecimiento"
     - duration: 15
-      arrivalRate: 60
+      arrivalRate: 30
+      rampTo: 40
+      name: "Crecimiento"
+    - duration: 25
+      arrivalRate: 70
       name: "Pico"
   plugins:
     publish-metrics:
