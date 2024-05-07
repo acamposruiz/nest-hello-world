@@ -5,11 +5,11 @@ config:
       arrivalRate: 5
       name: "Calentamiento"
     - duration: 5
-      arrivalRate: 10
-      rampTo: 10
-      name: "Crecimiento"
-    - duration: 5
       arrivalRate: 20
+      rampTo: 20
+      name: "Crecimiento"
+    - duration: 15
+      arrivalRate: 60
       name: "Pico"
   plugins:
     publish-metrics:
