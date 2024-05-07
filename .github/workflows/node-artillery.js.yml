@@ -30,4 +30,9 @@ jobs:
     - run: sleep 10 # Da tiempo al servidor para que se inicie
     - run: cd ga/artillery-tests && chmod +x ./run-art-tests.sh && ./run-art-tests.sh
     - name: Kill Node.js process
-      run: kill $! # Esto enviará la señal de terminación al último proceso en segundo plano
+      run: |
+        if kill -0 $! 2>/dev/null; then
+          kill $!
+        else
+          echo "Process already terminated."
+        fi # Esto enviará la señal de terminación al último proceso en segundo plano
