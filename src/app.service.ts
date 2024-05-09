@@ -6,7 +6,7 @@ export class AppService {
     return new Promise(resolve => {
       setTimeout(() => {
         resolve('Hello World! Huuuray!!!');
-      }, 2500);  // Delay de 1000 milisegundos (1 segundo)
+      }, 2700);  // Delay de 1000 milisegundos (1 segundo)
     });
   }
 
