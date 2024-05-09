@@ -1,14 +1,14 @@
 config:
-  target: "https://www.twonav.com/es/mapas/"
+  target: "http://localhost:3000"
   phases:
     - duration: 15
       arrivalRate: 5
       name: "Calentamiento"
-    - duration: 5
+    - duration: 15
       arrivalRate: 10
       rampTo: 10
       name: "Crecimiento"
-    - duration: 5
+    - duration: 15
       arrivalRate: 20
       name: "Pico"
   plugins:
@@ -16,7 +16,7 @@ config:
       - type: prometheus
         pushgateway: "http://172.169.60.28:9091" 
         tags:
-        - "testId:mytest456"
+        - "testId:mytest789"
         - "type:loadtest"
         - "job:artillery_test_azure_${{DATE}}" 
 
