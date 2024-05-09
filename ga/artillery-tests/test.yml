@@ -1,5 +1,5 @@
 config:
-  target: "https://www.twonav.com/es/mapas/"
+  target: "http://localhost:3000"
   phases:
     - duration: 15
       arrivalRate: 5
