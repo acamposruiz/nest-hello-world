@@ -16,7 +16,7 @@ config:
       - type: prometheus
         pushgateway: "http://172.169.60.28:9091" 
         tags:
-        - "testId:mytest456"
+        - "testId:mytest789"
         - "type:loadtest"
         - "job:artillery_test_azure_${{DATE}}" 
 
