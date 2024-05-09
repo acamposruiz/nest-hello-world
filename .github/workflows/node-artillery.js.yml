@@ -1,0 +1,38 @@
+name: Run Artillery
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+  workflow_dispatch: # Esto permite la ejecución manual del workflow
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm ci
+    - run: npm install -g artillery
+    - name: Start server in background
+      run: npm run start > /dev/null 2>&1 &
+    - run: sleep 10 # Da tiempo al servidor para que se inicie
+    - run: cd ga/artillery-tests && chmod +x ./run-art-tests.sh && ./run-art-tests.sh
+    - name: Kill Node.js process
+      run: |
+        if kill -0 $! 2>/dev/null; then
+          kill $!
+        else
+          echo "Process already terminated."
+        fi # Esto enviará la señal de terminación al último proceso en segundo plano
