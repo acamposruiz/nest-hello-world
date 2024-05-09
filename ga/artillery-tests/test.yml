@@ -4,11 +4,11 @@ config:
     - duration: 15
       arrivalRate: 5
       name: "Calentamiento"
-    - duration: 5
+    - duration: 15
       arrivalRate: 10
       rampTo: 10
       name: "Crecimiento"
-    - duration: 5
+    - duration: 15
       arrivalRate: 20
       name: "Pico"
   plugins:
